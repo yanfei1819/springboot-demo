@@ -39,8 +39,9 @@ public class SchedulingConfig implements SchedulingConfigurer {
 	}
 
 	// cron：支持cron表达式,指定任务在特定时间执行(如下cron = "0 0 1 * * ?"表示每天凌晨1点执行);
-	// fixedRate:以特定频率(毫秒)执行任务(如下fixedDelay = 60000表示1分钟执行一次);
+	// fixedRate:以特定频率(毫秒)执行任务(如下fixedDelay = 60000表示1分钟执行一次)，如果执行的时间大于价格时间，下一个任务会在上一个任务执行结束后立马执行;
 	// fixedRateString以string的形式配置执行频率。
+	// fixedDelay:间隔是前次任务的结束与下次任务的开始,与任务执行时间无关。
 	// @Scheduled(cron = "0 0 1 * * ?")
 	@Scheduled(fixedDelay = 60000)
 	public void scheduledDemo() {
